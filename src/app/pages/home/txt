@@ -1,0 +1,21 @@
+import Carousel from "@/components/moviesCarrousel";
+import { getPosts } from "@/lib/posts"; // 👈 importa os dados diretamente
+import Movies from "@/app/movies/page";
+
+export default async function Home() {
+    const posts = await getPosts();
+    
+  return (
+    <div className="flex flex-col w-full h-full bg-amber-100">
+        <div className="flex w-full h-3/6">
+          <div className="flex w-3/6 h-full bg-linear-65 from-black to-transparent">01</div>
+
+          <div className="flex w-3/6 h-full bg-amber-500">
+            <Carousel posts={posts} />
+          </div>
+        </div>
+
+        
+    </div>
+  );
+}

@@ -1,0 +1,21 @@
+import { motion } from "framer-motion"
+import { Post } from "@/ui/post"
+
+export default function PostsList({ posts }: { posts: any[] }) {
+  return (
+    <motion.ul
+      initial="hidden"
+      animate="visible"
+      variants={{
+        hidden: {},
+        visible: {
+          transition: { staggerChildren: 0.2 }
+        }
+      }}
+    >
+      {posts.map((post) => (
+        <Post key={post.id} post={post} />
+      ))}
+    </motion.ul>
+  )
+}

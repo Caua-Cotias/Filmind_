@@ -1,0 +1,63 @@
+[
+  {
+    "id": 1,
+    "titulo": "Ne Zha 2: O Renascer Da Alma",
+    "genero": "Ação, Aventura",
+    "sinopse": "Uma década após os eventos do primeiro filme, Avatar 2: O Caminho da Água acompanha a história da família Sully: Jake (Sam Worthington), Neytiri (Zoe Saldana) e seus filhos. O longa também irá apresentar os perigos que os esperam nesta nova aventura, os esforços que fazem para se manterem seguros, as batalhas que enfrentam para sobreviver e, claro, as tragédias que sofrem.",
+    "qualityVideo": "4k",
+    "codecAudio": "AAC-3",
+    "image": "/movies/1.jpg",
+    "wallpaper": "/movies/wallpapers/1.png"
+  },
+  {
+    "id": 2,
+    "titulo": "Zoopocalipse - Uma Aventura Animal",
+    "genero": "Animação",
+    "sinopse": "Gracie e Xavier vivem com seus amigos no zoológico até que um meteoro cai no local, e transforma alguns dos animais em zumbis coloridos. Para salvar seus amigos, a jovem loba Gracie se une ao ranzinza leão-da-montanha Dan. Juntos, eles contam com a ajuda de um grupo para lá de especial: Xavier, o lêmure fã de cinema, Frida, a capivara confiante, Ash, o avestruz cheio de estilo, e Felix, um macaquinho atrapalhado. Agora, essa turma improvável precisa encontrar um jeito de salvar o zoológico e os outros animais.",
+    "qualityVideo": "4k",
+    "codecAudio": "Dolby Digital",
+    "image": "/movies/2.jpg",
+    "wallpaper": "/movies/wallpapers/2.jpg"
+  },
+  {
+    "id": 3,
+    "titulo": "Avatar: O Caminho Da Água",
+    "genero": "Ação, Aventura",
+    "sinopse": "Uma década após os eventos do primeiro filme, Avatar 2: O Caminho da Água acompanha a história da família Sully: Jake (Sam Worthington), Neytiri (Zoe Saldana) e seus filhos. O longa também irá apresentar os perigos que os esperam nesta nova aventura, os esforços que fazem para se manterem seguros, as batalhas que enfrentam para sobreviver e, claro, as tragédias que sofrem.",
+    "qualityVideo": "4k",
+    "codecAudio": "DTS-X",
+    "image": "/movies/3.jpg",
+    "wallpaper": "/movies/wallpapers/3.jpg"
+  },
+  {
+    "id": 4,
+    "titulo": "Os Caras Malvados 2",
+    "genero": "Animação, Aventura, Comédia, Família",
+    "sinopse": "Em OS CARAS MALVADOS 2, os protagonistas lutam para encontrar confiança e aceitação para sua recente condição de bons moços, quando são forçados, por um esquadrão de mulheres criminosas, a abandonar a aposentadoria para fazer um último trabalho.",
+    "qualityVideo": "4k",
+    "codecAudio": "Dolby Atmos",
+    "image": "/movies/4.png",
+    "wallpaper": "/movies/wallpapers/4.jpg"
+  },
+  {
+    "id": 5,
+    "titulo": "Superman",
+    "genero": "Aventura, Ação, Ficção Científica",
+    "sinopse": "Um herói movido pela crença e pela esperança na bondade da humanidade. Em Superman, acompanhamos a jornada do super-herói em tentar conciliar suas duas personas: sua herança extraterrestre como kryptoniano e sua vida humana, criado como Clark Kent (David Corenswet) na cidade de Smallville no Kansas. Dirigido por James Gunn, o novo filme irá reunir personagens, heróis e vilões clássicos da história de Superman, como Lex Luthor (Nicholas Hoult), Lois Lane (Rachel Brosnahan), Lanterna Verde (Nathan Fillion), Mulher-Gavião (Isabela Merced), entre outros. O chamado de Superman será colocado à prova através de uma série de novas aventuras épicas e diante de uma sociedade que enxerga seus valores de justiça e verdade como antiquados.",
+    "qualityVideo": "4k",
+    "codecAudio": "Dolby Atmos",
+    "image": "/movies/5.avif",
+    "wallpaper": "/movies/wallpapers/5.jpg"
+  },
+    {
+    "id": 6,
+    "titulo": "Thunderbolts*",
+    "genero": "Ação/Ficção científica",
+    "sinopse": "Presos em uma armadilha mortal, uma equipe nada convencional de anti-heróis embarca em uma missão perigosa que os força a confrontar os cantos mais sombrios de suas vidas.",
+    "qualityVideo": "4k",
+    "codecAudio": "Dolby Atmos",
+    "image": "/movies/6.avif",
+    "wallpaper": "/movies/wallpapers/6.jpg"
+  }
+  
+]
