@@ -21,7 +21,7 @@ const signupSchema = z
   .refine((data) => data.password === data.confirmPassword, {
     message: "As senhas não coincidem",
     path: ["confirmPassword"],
-  })
+})
 
 type SignupFormValues = z.infer<typeof signupSchema>
 

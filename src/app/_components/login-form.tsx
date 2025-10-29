@@ -10,7 +10,9 @@ import { authClient } from "@/lib/auth-client"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import Image from "next/image"
 
+import GoogleIcon from "../../../public/icons/google.png";
 
 const loginSchema = z.object({
   email: z.string().email({ message: "Email inválido" }),
@@ -31,6 +33,13 @@ export function LoginForm() {
       password: "",
     },
   })
+
+  async function handleSignInWithGoogle() {
+    await authClient.signIn.social({
+      provider: "google",
+      callbackURL: "/dashboard"
+    })
+  }
 
   async function onSubmit(formData: LoginFormValues) {
     await authClient.signIn.email({
@@ -123,6 +132,16 @@ export function LoginForm() {
             <span className="bg-background px-2 text-muted-foreground">Ou continue com</span>
           </div>
         </div>
+
+        <Button
+          type="button"
+          variant="outline"
+          className="w-full bg-neutral-200 text-neutral-500 cursor-pointer"
+          onClick={handleSignInWithGoogle}
+        >
+          <Image className="opacity-75" width={18} height={18} src={GoogleIcon} alt="GoogleIcon"/>
+          Google
+        </Button>
       </form>
     </Form>
   )

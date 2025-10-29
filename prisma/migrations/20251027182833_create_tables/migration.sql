@@ -12,6 +12,33 @@ CREATE TABLE "user" (
 );
 
 -- CreateTable
+CREATE TABLE "Media" (
+    "id" SERIAL NOT NULL,
+    "userId" TEXT NOT NULL,
+    "title" TEXT NOT NULL,
+    "tmdbId" INTEGER,
+    "imdbId" TEXT,
+    "synopsis" TEXT,
+    "genres" TEXT,
+    "posterUrl" TEXT,
+    "wallpaperUrl" TEXT,
+    "jellyfinUrl" TEXT,
+    "torrentMagnet" TEXT,
+    "torrentInfoHash" TEXT,
+    "cloudSeedEnabled" BOOLEAN NOT NULL DEFAULT false,
+    "cloudProvider" TEXT,
+    "cloudPath" TEXT,
+    "filesize" BIGINT,
+    "durationSeconds" INTEGER,
+    "status" TEXT NOT NULL DEFAULT 'pending',
+    "moderationStatus" TEXT NOT NULL DEFAULT 'pending',
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "Media_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
 CREATE TABLE "session" (
     "id" TEXT NOT NULL,
     "expiresAt" TIMESTAMP(3) NOT NULL,
@@ -61,6 +88,9 @@ CREATE UNIQUE INDEX "user_email_key" ON "user"("email");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "session_token_key" ON "session"("token");
+
+-- AddForeignKey
+ALTER TABLE "Media" ADD CONSTRAINT "Media_userId_fkey" FOREIGN KEY ("userId") REFERENCES "user"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "session" ADD CONSTRAINT "session_userId_fkey" FOREIGN KEY ("userId") REFERENCES "user"("id") ON DELETE CASCADE ON UPDATE CASCADE;

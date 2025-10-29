@@ -1,10 +1,10 @@
 // app/movies/page.tsx
-
-import { getPosts } from "@/lib/posts";
 import { PostCard } from "@/components/post-card";
+import { getPopularMovies } from "@/lib/tmdb";
 
-export default async function Movies() {
-  const posts = await getPosts();
+export default async function Filmes() {
+  const posts = await getPopularMovies(1, 10);
+
 
   return (
     <main className="flex w-full h-72 relative rounded-lg">
@@ -15,11 +15,8 @@ export default async function Movies() {
         ))}
       </div>
 
-      {/* Camada de blur */}
-      <div className="w-screen h-screen bg-black/60 backdrop-blur-xl " />
-
       {/* Camada principal */}
-      <div className="absolute inset-0 z-10 flex p-3 gap-4 rounded-lg">
+      <div className="absolute inset-0 z-10 flex p-3 gap-4 items-center justify-center rounded-lg">
           {posts.map((post: any) => (
             <PostCard key={post.id} post={post} />
           ))}

@@ -30,8 +30,8 @@ export function PostCard({ post, itemVariants }: any) {
           "--ice-white": "rgb(231, 246, 255, 0.3)", // branco gelo suave
         } as CSSWithVars
       }
-      className="group flex w-96 h-44 p-0.5 hover:bg-[linear-gradient(to_right,var(--to-color))]
-      hover:mx-1 hover:shadow-[0_0_70px_-10px_var(--to-color)] transition-all ease-in items-center justify-center backdrop-blur-2xl rounded-xl cursor-pointer"
+      className="group flex p-0.5 hover:bg-[linear-gradient(to_right,var(--to-color))]
+      hover:shadow-[0_0_70px_-10px_var(--to-color)] transition-all ease-in items-center justify-center backdrop-blur-2xl rounded-xl cursor-pointer"
       variants={itemVariants}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >

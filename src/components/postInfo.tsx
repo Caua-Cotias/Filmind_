@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Badge } from "./ui/badge";
-import Image from "next/image";
+
 
 interface Post {
   id: number | string;

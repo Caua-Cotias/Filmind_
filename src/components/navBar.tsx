@@ -12,20 +12,22 @@ export default async function NavBar(){
         headers: await headers() //
     })
 
+    const userAvatarCallback = "https://cdn-icons-png.flaticon.com/512/12225/12225881.png";
+
     return(
         <div className="flex items-end justify-between w-full h-20 fixed z-30">
             <div className="flex px-24 gap-6 items-center justify-center">
-                <Link href="/dashboard/profile" className="flex px-2 py-1 rounded-full bg-white/10 border backdrop-blur-lg items-center gap-3">
+                <Link href="/dashboard/profile" className="flex px-2 pr-5 py-1 rounded-full bg-white/10 border backdrop-blur-xl items-center gap-3">
                     <Avatar className="flex w-9 h-9">
-                        <AvatarImage src={""} alt="@shadcn" />
+                        <AvatarImage src={`${session?.user.image || userAvatarCallback}`} alt="User_image" />
                         <AvatarFallback></AvatarFallback>
                     </Avatar>
 
                     <span>{session?.user.name}</span>
                 </Link>
 
-                <div className="flex gap-2">
-                    <Link href="/">
+                <div className="flex gap-2 backdrop-blur-xl bg-white/10 border border-neutral-200/20 p-1 rounded-full">
+                    <Link href="/dashboard/add-media">
                         <Button className="rounded-full cursor-pointer text-neutral-100/70 font-bold bg-transparent hover:bg-neutral-100 hover:text-neutral-700">
                             Para voce
                         </Button>

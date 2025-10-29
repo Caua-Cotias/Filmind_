@@ -15,7 +15,7 @@ export default async function Dashboard() {
   }
 
   return (
-    <div>
+    <div className="overflow-y-scroll">
       <NavBar />
       <Home />
     </div>
