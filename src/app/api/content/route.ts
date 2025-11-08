@@ -45,7 +45,7 @@ export async function POST(req: Request) {
     const description = Array.isArray(fields.description)
       ? fields.description[0]
       : fields.description;
-    const magnet = Array.isArray(fields.magnet) ? fields.magnet[0] : fields.magnet;
+    const torrentMagnet = Array.isArray(fields.torrentMagnet) ? fields.torrentMagnet[0] : fields.torrentMagnet;
 
     let ipfsCid: string | null = null;
     let uploadType: "file" | "magnet" | null = null;
@@ -65,7 +65,7 @@ export async function POST(req: Request) {
     }
 
     // 💡 Caso tenha enviado só o magnet link
-    if (!ipfsCid && magnet) {
+    if (!ipfsCid && torrentMagnet) {
       uploadType = "magnet";
     }
 
@@ -77,12 +77,12 @@ export async function POST(req: Request) {
     }
 
     // 💾 Salva no banco via Prisma
-    const media = await prisma.mediaTorrent.create({
+    const media = await prisma.media.create({
       data: {
         title: title || "Untitled",
         description: description || null,
-        ownerId: session.user.id,
-        magnet: uploadType === "magnet" ? magnet : null,
+        userId: session.user.id,
+        torrentMagnet: uploadType === "magnet" ? torrentMagnet : null,
         ipfsCid,
       },
     });
@@ -107,10 +107,10 @@ export async function POST(req: Request) {
    ===================== */
 export async function GET() {
   try {
-    const media = await prisma.mediaTorrent.findMany({
+    const media = await prisma.media.findMany({
       orderBy: { createdAt: "desc" },
       include: {
-        owner: { select: { id: true, name: true, email: true } },
+        user: { select: { id: true, name: true, email: true } },
       },
     });
 

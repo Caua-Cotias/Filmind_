@@ -1,0 +1,10 @@
+        <LoginForm />
+
+        <div className="text-center text-sm">
+          <p>
+            Não tem uma conta?{" "}
+            <Link href="/signup" className="font-medium text-primary hover:underline">
+              Cadastre-se
+            </Link>
+          </p>
+        </div>

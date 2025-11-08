@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body
-        className={`${nunito.variable} antialiased font-sans dark overflow-hidden`}
+        className={`${nunito.variable} antialiased font-sans dark overflow-y-scroll overflow-x-hidden`}
       >
         {children}
       </body>

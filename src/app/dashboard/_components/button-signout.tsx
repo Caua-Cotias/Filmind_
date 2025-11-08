@@ -18,7 +18,7 @@ export function ButtonSignOut() {
   }
 
   return (
-    <Button className="py-5 rounded-full cursor-pointer text-neutral-100/65 bg-white/10 border backdrop-blur-lg hover:bg-neutral-100 hover:text-neutral-700" onClick={signOut}>
+    <Button className="py-5 cursor-pointer text-neutral-100/65 bg-transparent hover:bg-transparent hover:text-neutral-100" onClick={signOut}>
       Sair da conta
     </Button>
   );

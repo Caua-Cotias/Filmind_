@@ -133,6 +133,23 @@
     animation: animation 3s ease infinite;
 }
 
+.animate-gradient-x {
+    background-size: 400%;
+    -webkit-animation: gradient-x 3s ease infinite;
+    -moz-animation: gradient-x 3s ease infinite;
+    animation: gradient-x 3s ease infinite;
+}
+
+@keyframes gradient-x {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+}
+
 
 @keyframes animation {
     0%,
@@ -154,5 +171,26 @@
 /* Utilidade simples para usar com Tailwind classes */
 .animate-gradient {
   animation: gradient 6s ease infinite;
+}
+
+.media-player[data-view-type="video"] {
+  aspect-ratio: 16 / 9;
+}
+
+.vds-video-layout {
+  --video-brand: hsl(0, 0%, 96%);
+  /* Layout: https://vidstack.io/docs/player/components/layouts/default-layout#video-layout  */
+  /* Components: https://www.vidstack.io/docs/player/components/layouts/default-layout#components */
+}
+
+.vds-audio-layout {
+  --audio-brand: hsl(0, 0%, 96%);
+  /* Layout: https://vidstack.io/docs/player/components/layouts/default-layout#audio-layout */
+  /* Components: https://www.vidstack.io/docs/player/components/layouts/default-layout#components */
+}
+
+.plyr {
+  --plyr-color-main: hsl(198, 100%, 50%);
+  /* CSS Vars: https://vidstack.io/docs/player/components/layouts/plyr-layout#css-variables */
 }
 

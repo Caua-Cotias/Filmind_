@@ -9,7 +9,7 @@ datasource db {
 }
 
 model User {
-  id            String      @id
+  id            String    @id
   name          String
   email         String    @unique
   emailVerified Boolean   @default(false)
@@ -17,60 +17,64 @@ model User {
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @default(now()) @updatedAt
   medias        Media[]
-  contents MediaTorrent[]
   accounts      Account[]
   sessions      Session[]
+
   @@map("user")
 }
 
 model Media {
-  id              Int      @id @default(autoincrement())
-  userId          String   @unique
+  id              Int       @id @default(autoincrement())
+  userId          String
   title           String
-  tmdbId          Int?
+  tmdbId          Int?     
   synopsis        String?
   genres          String?
-  ipfsCid         String?
+  description     String?
+  type            MediaType @default(MOVIE)
   posterUrl       String?
   wallpaperUrl    String?
   jellyfinUrl     String?
   torrentMagnet   String?
   torrentInfoHash String?
+  ipfsCid         String?
+  fileMoonUrl     String?
+  thumbnails      String[]  @default([])
   status          String    @default("pending")
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
 
-  user User @relation(fields: [userId], references: [id])
+  user     User      @relation(fields: [userId], references: [id])
+  seasons  Season[]
+  episodes Episode[] // episódios diretamente ligados também (ex: especiais)
+  @@unique([userId, tmdbId])
 }
 
-enum MediaType {
-MOVIE
-SERIES
-DOCUMENTARY
+model Season {
+  id           Int       @id @default(autoincrement())
+  seasonNumber Int
+  mediaId      Int
+  media        Media     @relation(fields: [mediaId], references: [id])
+  episodes     Episode[]
+
+  @@unique([mediaId, seasonNumber])
 }
 
+model Episode {
+  id            Int      @id @default(autoincrement())
+  mediaId       Int
+  season        Int
+  episodeNumber Int
+  title         String
+  synopsis      String?
+  jellyfinUrl   String?
+  fileMoonUrl   String?
+  torrentMagnet String?
+  ipfsCid       String?
+  media         Media    @relation(fields: [mediaId], references: [id])
+  Season        Season[]
 
-enum MediaStatus {
-PENDING
-READY
-ERROR
-}
-
-model MediaTorrent {
-id String @id @default(uuid())
-title String
-description String?
-ownerId String
-owner User @relation(fields: [ownerId], references: [id])
-type MediaType @default(MOVIE)
-status MediaStatus @default(PENDING)
-magnet String?
-cid String?
-ipfsCid   String?
-manifestUrl String?
-thumbnails String[] @default([])
-createdAt DateTime @default(now())
-updatedAt DateTime @updatedAt
+  @@unique([mediaId, season, episodeNumber])
 }
 
 model Session {
@@ -117,3 +121,15 @@ model Verification {
   @@map("verification")
 }
 
+enum MediaType {
+  MOVIE
+  SERIES
+  DOCUMENTARY
+  TV
+}
+
+enum MediaStatus {
+  PENDING
+  READY
+  ERROR
+}
